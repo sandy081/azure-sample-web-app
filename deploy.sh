@@ -1,8 +1,6 @@
-#!/bin/bash
-
 # ----------------------
 # KUDU Deployment Script
-# Version: 1.0.2
+# Version: 1.0.9
 # ----------------------
 
 # Helpers
@@ -78,7 +76,7 @@ selectNodeVersion () {
       exitWithMessageOnError "getting node version failed"
     fi
 
-    if [[ -e "$DEPLOYMENT_TEMP/.tmp" ]]; then
+    if [[ -e "$DEPLOYMENT_TEMP/__npmVersion.tmp" ]]; then
       NPM_JS_PATH=`cat "$DEPLOYMENT_TEMP/__npmVersion.tmp"`
       exitWithMessageOnError "getting npm version failed"
     fi
@@ -122,13 +120,5 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 ##################################################################################################################################
-
-# Post deployment stub
-if [[ -n "$POST_DEPLOYMENT_ACTION" ]]; then
-  POST_DEPLOYMENT_ACTION=${POST_DEPLOYMENT_ACTION//\"}
-  cd "${POST_DEPLOYMENT_ACTION_DIR%\\*}"
-  "$POST_DEPLOYMENT_ACTION"
-  exitWithMessageOnError "post deployment action failed"
-fi
 
 echo "Finished successfully."
