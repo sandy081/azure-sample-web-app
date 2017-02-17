@@ -24,7 +24,7 @@ gulp.task('compile-server', () => {
 gulp.task('watch-server', ['compile-server'], () => {
 	return gulp.watch('src/**/*.{ts,tsx}', ['compile-server']);
 });
-
+gulp.task('compile', ['compile-server']);
 gulp.task('watch', ['watch-server']);
 
 gulp.task('default', ['compile']);
