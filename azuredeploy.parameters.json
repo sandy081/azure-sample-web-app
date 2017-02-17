@@ -3,7 +3,7 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"siteName": {
-			"value": "sandy081-azure-sample"
+			"value": "sandy081-azure-sample-4"
 		},
 		"hostingPlanName": {
 			"value": "sandy081-azure-sample-plan"
