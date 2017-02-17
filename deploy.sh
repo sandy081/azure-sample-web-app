@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ----------------------
 # KUDU Deployment Script
 # Version: 1.0.9
@@ -110,7 +112,7 @@ selectNodeVersion
 # 3. Install npm packages
 if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
-  NODE_ENV="" eval $NPM_CMD install
+  eval $NPM_CMD install
   exitWithMessageOnError "npm failed"
 
   # 4. Compile sources
